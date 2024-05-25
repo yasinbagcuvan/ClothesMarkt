@@ -1,0 +1,97 @@
+﻿@using ClothesMarkt.Enums.OrtakEnums
+@using ClothesMarkt.Enums.Shirt
+<h1>ÜRÜN EKLEME</h1>
+@model ShirtViewModel
+<form asp-action="Create" method="post" enctype="multipart/form-data" id="accept-form">
+	<div class="form-group">
+		@* <span class="alert alert-danger text-danger">@ViewBag.ErrorMessage</span> *@
+		<label asp-for="Name">@Html.DisplayNameFor(m => m.Name) </label>
+		<input asp-for="Name" class="form-control" />
+		<span asp-validation-for="Name" class="form-text text-danger"></span>
+
+		<label asp-for="Description">@Html.DisplayNameFor(m => m.Description) </label>
+		<input asp-for="Description" class="form-control" />
+
+		<label asp-for="Category" class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.Category)</label>
+		<div class="form-check form-switch">
+			<select asp-for="CategoryId" class="form-select" asp-items="@ViewBag.Categories"></select>
+			<span asp-validation-for="CategoryId" class="form-text text-danger"></span>
+		</div>
+
+		<label asp-for="CepTipi" class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.CepTipi)</label>
+		<select asp-for="CepTipi" asp-items="Html.GetEnumSelectList<CepTipi>()">
+			<option selected="selected" value="">Lütfen Cep Tipi Seçiniz</option>
+		</select>
+
+		<label asp-for="KolBoyu" class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.KolBoyu)</label>
+		<select asp-for="KolBoyu" asp-items="Html.GetEnumSelectList<KolBoyu>()">
+			<option selected="selected" value="">Lütfen KolBoyu Seçiniz</option>
+		</select>
+
+		<label asp-for="KolTipi" class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.KolTipi)</label>
+		<select asp-for="KolTipi" asp-items="Html.GetEnumSelectList<KolTipi>()">
+			<option selected="selected" value="">Lütfen KolTipi Seçiniz</option>
+		</select>
+
+		<label asp-for="ProductSize" class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.ProductSize)</label>
+		<select asp-for="ProductSize" asp-items="Html.GetEnumSelectList<ProductSize>()">
+			<option selected="selected" value="">Lütfen Size Seçiniz</option>
+		</select>
+
+		<label asp-for="ShirtBaski" class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.ShirtBaski)</label>
+		<select asp-for="ShirtBaski" asp-items="Html.GetEnumSelectList<ShirtBaski>()">
+			<option selected="selected" value="">Lütfen ShirtBaski Seçiniz</option>
+		</select>
+
+		<label asp-for="ShirtDesen" class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.ShirtDesen)</label>
+		<select asp-for="ShirtDesen" asp-items="Html.GetEnumSelectList<ShirtDesen>()">
+			<option selected="selected" value="">Lütfen ShirtDesen Seçiniz</option>
+		</select>
+
+		<label asp-for="ShirtDokumaTipi" class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.ShirtDokumaTipi)</label>
+		<select asp-for="ShirtDokumaTipi" asp-items="Html.GetEnumSelectList<ShirtDokumaTipi>()">
+			<option selected="selected" value="">Lütfen ShirtDokumaTipi Seçiniz</option>
+		</select>
+
+		<label asp-for="ShirtKalip" class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.ShirtKalip)</label>
+		<select asp-for="ShirtKalip" asp-items="Html.GetEnumSelectList<ShirtKalip>()">
+			<option selected="selected" value="">Lütfen ShirtKalip Seçiniz</option>
+		</select>
+
+		<label asp-for="ShirtKolTipi" class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.ShirtKolTipi)</label>
+		<select asp-for="ShirtKolTipi" asp-items="Html.GetEnumSelectList<ShirtKolTipi>()">
+			<option selected="selected" value="">Lütfen ShirtKolTipi Seçiniz</option>
+		</select>
+
+		<label asp-for="ShirtKumasTipi" class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.ShirtKumasTipi)</label>
+		<select asp-for="ShirtKumasTipi" asp-items="Html.GetEnumSelectList<ShirtKumasTipi>()">
+			<option selected="selected" value="">Lütfen ShirtKumasTipi Seçiniz</option>
+		</select>
+		
+		<label asp-for="ShirtMateryal" class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.ShirtMateryal)</label>
+		<select asp-for="ShirtMateryal" asp-items="Html.GetEnumSelectList<ShirtMateryal>()">
+			<option selected="selected" value="">Lütfen ShirtMateryal Seçiniz</option>
+		</select>
+
+		<label asp-for="ShirtYakaTipi" class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.ShirtYakaTipi)</label>
+		<select asp-for="ShirtYakaTipi" asp-items="Html.GetEnumSelectList<ShirtYakaTipi>()">
+			<option selected="selected" value="">Lütfen ShirtYakaTipi Seçiniz</option>
+		</select>
+
+
+
+
+
+		<div class="form-group">
+			<label asp-for="PictureFormFile">@Html.DisplayNameFor(m => m.PictureFormFile) </label>
+			<input asp-for="PictureFormFile" type="file" class="form-control" />
+			<span asp-validation-for="PictureFormFile" class="form-text text-danger"></span>
+		</div>
+	</div>
+	<button type="submit" class="btn btn-primary">EKLE</button>
+
+</form>
+
+@section Scripts {
+	@Html.Partial("_ValidationScriptsPartial")
+}

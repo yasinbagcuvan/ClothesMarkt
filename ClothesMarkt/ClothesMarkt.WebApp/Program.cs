@@ -31,9 +31,13 @@ builder.Services.AddScoped<CategoryRepo>();
 builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<CategoryManager>();
 
-builder.Services.AddScoped<ProductRepo>();
-builder.Services.AddScoped<ProductService>();
-builder.Services.AddScoped<ProductManager>();
+builder.Services.AddScoped<TshirtRepo>();
+builder.Services.AddScoped<TshirtService>();
+builder.Services.AddScoped<TshirtManager>();
+
+builder.Services.AddScoped<ShirtRepo>();
+builder.Services.AddScoped<ShirtService>();
+builder.Services.AddScoped<ShirtManager>();
 
 var app = builder.Build();
 

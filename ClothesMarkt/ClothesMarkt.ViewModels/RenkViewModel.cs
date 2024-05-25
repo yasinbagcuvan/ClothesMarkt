@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ClothesMarkt.ViewModels
 {
-	public class CategoryViewModel : BaseViewModel
+	public class RenkViewModel : BaseViewModel
 	{
 		public string Name { get; set; }
-		public IEnumerable<TshirtViewModel>? Tshirts { get; set; }
-		public IEnumerable<ShirtViewModel>? Shirts { get; set; }
+		public IEnumerable<TshirtsRenklerViewModel>? Tshirts { get; set; }
+		public IEnumerable<ShirtsRenklerViewModel>? Shirts { get; set; }
 	}
 }

@@ -8,59 +8,91 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static Azure.Core.HttpHeader;
+using System.Reflection.Emit;
 
 namespace ClothesMarkt.DAL.Context
 {
 	public class ClothesMarktDbContext : IdentityDbContext<IdentityUser<int>, IdentityRole<int>, int>
 	{
-		public DbSet<Product> Products { get; set; }
+		public DbSet<Tshirt> Tshirts { get; set; }
+		public DbSet<Shirt> Shirts { get; set; }
+		public DbSet<ShirtsRenkler> ShirtsRenklers { get; set; }
+		public DbSet<TshirtsRenkler> TshirtsRenklers { get; set; }
 		public DbSet<Category> Categories { get; set; }
-		public DbSet<Color> Colors { get; set; }
-		public ClothesMarktDbContext(DbContextOptions<ClothesMarktDbContext> options):base(options)
-        {
-            
-        }
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            base.OnModelCreating(builder);
+		public DbSet<Renk> Colors { get; set; }
+		public ClothesMarktDbContext(DbContextOptions<ClothesMarktDbContext> options) : base(options)
+		{
 
-            var hasher = new PasswordHasher<IdentityUser<int>>();
+		}
+		protected override void OnModelCreating(ModelBuilder builder)
+		{
+			base.OnModelCreating(builder);
 
-            builder.Entity<IdentityUser<int>>()
-                   .HasData(new IdentityUser<int>
-                   {
-                       Id = 1,
-                       UserName = "admin",
-                       NormalizedUserName = "ADMIN",
-                       Email = "admin@mail.com",
-                       NormalizedEmail = "ADMIN@MAIL.COM",
-                       EmailConfirmed = true,
-                       PhoneNumberConfirmed = true,
-                       PhoneNumber = "-",
-                       PasswordHash = hasher.HashPassword(null, "Az*123456"),
-                       SecurityStamp = Guid.NewGuid().ToString()
-                   });
+			var hasher = new PasswordHasher<IdentityUser<int>>();
+
+			builder.Entity<IdentityUser<int>>()
+				   .HasData(new IdentityUser<int>
+				   {
+					   Id = 1,
+					   UserName = "admin",
+					   NormalizedUserName = "ADMIN",
+					   Email = "admin@mail.com",
+					   NormalizedEmail = "ADMIN@MAIL.COM",
+					   EmailConfirmed = true,
+					   PhoneNumberConfirmed = true,
+					   PhoneNumber = "-",
+					   PasswordHash = hasher.HashPassword(null, "Az*123456"),
+					   SecurityStamp = Guid.NewGuid().ToString()
+				   });
 
 
-            //Admin Role Add
+			//Admin Role Add
 
-            builder.Entity<IdentityRole<int>>()
-                   .HasData(new IdentityRole<int>
-                   {
-                       Id = 1,
-                       Name = "Admin",
-                       NormalizedName = "ADMIN"
-                   });
+			builder.Entity<IdentityRole<int>>()
+				   .HasData(new IdentityRole<int>
+				   {
+					   Id = 1,
+					   Name = "Admin",
+					   NormalizedName = "ADMIN"
+				   });
 
-            //User To Role Add
+			//User To Role Add
 
-            builder.Entity<IdentityUserRole<int>>()
-                   .HasData(new IdentityUserRole<int>
-                   {
-                       UserId = 1,
-                       RoleId = 1
-                   });
-        }
+			builder.Entity<IdentityUserRole<int>>()
+				   .HasData(new IdentityUserRole<int>
+				   {
+					   UserId = 1,
+					   RoleId = 1
+				   });
 
-    }
+
+			builder.Entity<ShirtsRenkler>()
+				.HasKey(gr => new { gr.ShirtId, gr.RenkId });
+
+			builder.Entity<ShirtsRenkler>()
+				.HasOne(gr => gr.Shirt)
+				.WithMany(g => g.Renkler)
+				.HasForeignKey(gr => gr.ShirtId);
+
+			builder.Entity<ShirtsRenkler>()
+				.HasOne(gr => gr.Renk)
+				.WithMany(r => r.Shirts)
+				.HasForeignKey(gr => gr.RenkId);
+
+			builder.Entity<TshirtsRenkler>()
+				.HasKey(gr => new { gr.TshirtId, gr.RenkId });
+
+			builder.Entity<TshirtsRenkler>()
+				.HasOne(gr => gr.Tshirt)
+				.WithMany(g => g.Renkler)
+				.HasForeignKey(gr => gr.TshirtId);
+
+			builder.Entity<TshirtsRenkler>()
+				.HasOne(gr => gr.Renk)
+				.WithMany(r => r.Tshirts)
+				.HasForeignKey(gr => gr.RenkId);
+
+		}
+
+	}
 }

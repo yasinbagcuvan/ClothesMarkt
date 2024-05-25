@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace ClothesMarkt.Dtos
 {
-	public class CategoryDto: BaseDto
+	public class RenkDto : BaseDto
 	{
 		public string Name { get; set; }
-		public IEnumerable<TshirtDto>? Tshirts { get; set; }
-		public IEnumerable<ShirtDto>? Shirts { get; set; }
+		public IEnumerable<TshirtsRenklerDto>? Tshirts { get; set; }
+		public IEnumerable<ShirtsRenklerDto>? Shirts { get; set; }
 	}
-	
 }

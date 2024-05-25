@@ -16,12 +16,12 @@ namespace ClothesMarkt.DAL.Repositories.Concrete
 		{ }
 		public override IEnumerable<Category> GetAll()
 		{
-			return _context.Categories.Include(c => c.Products).ToList();
+			return _context.Categories.Include(c => c.Tshirts).Include(c=> c.Shirts).ToList();
 		}
 
 		public override Category? GetById(int id)
 		{
-			return _context.Categories.Include(p => p.Products).Where(c => c.Id == id).AsNoTracking().SingleOrDefault();
+			return _context.Categories.Include(c => c.Tshirts).Include(c => c.Shirts).Where(c => c.Id == id).AsNoTracking().SingleOrDefault();
 		}
 
 	}

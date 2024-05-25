@@ -23,7 +23,21 @@ namespace ClothesMarkt.BLL.Managers.Abstract
 			{
 				cfg.AddExpressionMapping().AddCollectionMappers();
 				cfg.CreateMap<TDto, TViewModel>().ReverseMap();
-			});
+
+
+                cfg.CreateMap<ShirtViewModel, ShirtDto>().ForMember(x => x.Picture, y => y.MapFrom(z => (z.PictureFormFile == null) ? z.Picture : z.PictureFormFile.FileName));
+                cfg.CreateMap<ShirtDto, ShirtViewModel>().ForMember(x => x.Picture, y => y.MapFrom(z => z.Picture));
+
+                cfg.CreateMap<ShirtViewModel, ShirtDto>().ForMember(x => x.Picture, y => y.MapFrom(z => (z.PictureFormFile == null) ? z.Picture : z.PictureFormFile.FileName));
+                cfg.CreateMap<ShirtDto, ShirtViewModel>().ForMember(x => x.Picture, y => y.MapFrom(z => z.Picture));
+
+
+                cfg.CreateMap<TshirtViewModel, TshirtDto>().ForMember(x => x.Picture, y => y.MapFrom(z => (z.PictureFormFile == null) ? z.Picture : z.PictureFormFile.FileName));
+                cfg.CreateMap<TshirtDto, TshirtViewModel>().ForMember(x => x.Picture, y => y.MapFrom(z => z.Picture));
+
+                cfg.CreateMap<TshirtViewModel, TshirtDto>().ForMember(x => x.Picture, y => y.MapFrom(z => (z.PictureFormFile == null) ? z.Picture : z.PictureFormFile.FileName));
+                cfg.CreateMap<TshirtDto, TshirtViewModel>().ForMember(x => x.Picture, y => y.MapFrom(z => z.Picture));
+            });
 
 			_mapper = _config.CreateMapper();
 
@@ -39,8 +53,6 @@ namespace ClothesMarkt.BLL.Managers.Abstract
 		public int Add(TViewModel viewModel)
 		{
 			TDto dto = _mapper.Map<TDto>(viewModel);
-			//dto.AppUserId = _appUserId;
-
 			return _service.Add(dto);
 		}
 

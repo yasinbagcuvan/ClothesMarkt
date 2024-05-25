@@ -4,6 +4,7 @@ using ClothesMarkt.DAL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClothesMarkt.DAL.Migrations
 {
     [DbContext(typeof(ClothesMarktDbContext))]
-    partial class ClothesMarktDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240525093735_n-n tablolar ve enumlar eklendi")]
+    partial class nntablolarveenumlareklendi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,9 +40,6 @@ namespace ClothesMarkt.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("RowNum")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("Updated")
                         .HasColumnType("datetime2");
 
@@ -62,9 +62,6 @@ namespace ClothesMarkt.DAL.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("RowNum")
-                        .HasColumnType("int");
 
                     b.Property<DateTime?>("Updated")
                         .HasColumnType("datetime2");
@@ -116,9 +113,6 @@ namespace ClothesMarkt.DAL.Migrations
                     b.Property<int>("ProductSize")
                         .HasColumnType("int");
 
-                    b.Property<int?>("RowNum")
-                        .HasColumnType("int");
-
                     b.Property<int>("ShirtBaski")
                         .HasColumnType("int");
 
@@ -168,9 +162,6 @@ namespace ClothesMarkt.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("RowNum")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("Updated")
@@ -237,9 +228,6 @@ namespace ClothesMarkt.DAL.Migrations
                     b.Property<int>("ProductSize")
                         .HasColumnType("int");
 
-                    b.Property<int?>("RowNum")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("UnitPrice")
                         .HasColumnType("decimal(18,2)");
 
@@ -268,9 +256,6 @@ namespace ClothesMarkt.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("RowNum")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("Updated")
@@ -417,16 +402,16 @@ namespace ClothesMarkt.DAL.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "62785237-68ed-497d-9028-9c3d9bc67c59",
+                            ConcurrencyStamp = "a2c8faab-5a72-475d-9dc3-182b64e29f02",
                             Email = "admin@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@MAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEABrJhRYMyMLmP3HQE6eA1oRjWDnLrX6fFD7k7E+YNtO0e5Gl8IFejk1q0bDKU4fNg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECJ0RqN8tu0uabH8kBLUd0I/Iyfi8ODvcLfCr064xVg/ScfgWCY4AaPyVT4u0JylXw==",
                             PhoneNumber = "-",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "5e924fbf-bfbc-4b0e-a66b-c6d970d61e30",
+                            SecurityStamp = "dbf52d9a-d48c-4cc2-9a80-dcafc99dbfb6",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });

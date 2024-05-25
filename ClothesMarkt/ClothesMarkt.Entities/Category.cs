@@ -9,6 +9,7 @@ namespace ClothesMarkt.Entities
 	public class Category : BaseEntity
 	{
 		public string Name { get; set; }
-		public IEnumerable<Product>? Products { get; set; }
+		public IEnumerable<Tshirt>? Tshirts { get; set; }
+		public IEnumerable<Shirt>? Shirts { get; set; }
 	}
 }

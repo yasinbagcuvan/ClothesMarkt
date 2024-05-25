@@ -15,10 +15,15 @@ namespace ClothesMarkt.DAL.Services.Profiles
 	{
 		public CategoryProfile()
 		{
-			CreateMap<Category, CategoryDto>().ForMember(dest => dest.Products, opt => opt.MapFrom(src => src.Products));
-			CreateMap<CategoryDto, Category>().ForMember(dest => dest.Products, opt => opt.MapFrom(src => src.Products));
+			CreateMap<Category, CategoryDto>().ForMember(dest => dest.Shirts, opt => opt.MapFrom(src => src.Shirts));
+			CreateMap<CategoryDto, Category>().ForMember(dest => dest.Shirts, opt => opt.MapFrom(src => src.Shirts));
+
+			CreateMap<Category, CategoryDto>().ForMember(dest => dest.Tshirts, opt => opt.MapFrom(src => src.Tshirts));
+			CreateMap<CategoryDto, Category>().ForMember(dest => dest.Tshirts, opt => opt.MapFrom(src => src.Tshirts));
+
 			CreateMap<CategoryDto, Category>().ReverseMap();
-			CreateMap<ProductDto, Product>().ReverseMap();
+			CreateMap<TshirtDto, Tshirt>().ReverseMap();
+			CreateMap<ShirtDto, Shirt>().ReverseMap();
 		}
 	}
 }
