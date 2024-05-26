@@ -45,7 +45,30 @@ namespace ClothesMarkt.DAL.Context
 					   SecurityStamp = Guid.NewGuid().ToString()
 				   });
 
-
+			builder.Entity<Renk>()
+				   .HasData(
+				new Renk(){ Id=1  ,Name="Altın", Created=DateTime.Now},
+				new Renk(){ Id=2  ,Name="Bej", Created=DateTime.Now},
+				new Renk(){ Id=3  ,Name="Beyaz", Created=DateTime.Now},
+				new Renk(){ Id=4  ,Name="Bordo", Created=DateTime.Now},
+				new Renk(){ Id=5  ,Name="Ekru", Created=DateTime.Now},
+				new Renk(){ Id=6  ,Name="Gri", Created=DateTime.Now},
+				new Renk(){ Id=7  ,Name="Gümüş", Created=DateTime.Now},
+				new Renk(){ Id=8  ,Name="Haki", Created=DateTime.Now},
+				new Renk(){ Id=9  ,Name="Kahverengi", Created=DateTime.Now},
+				new Renk(){ Id=10 ,Name="Kırmızı", Created=DateTime.Now},
+				new Renk(){ Id=11 ,Name="Lacivert", Created=DateTime.Now},
+				new Renk(){ Id=11 ,Name="Mavi", Created=DateTime.Now},
+				new Renk(){ Id=12 ,Name="Metalik", Created=DateTime.Now},
+				new Renk(){ Id=13 ,Name="Mor", Created=DateTime.Now},
+				new Renk(){ Id=14 ,Name="Pembe", Created=DateTime.Now},
+				new Renk(){ Id=15 ,Name="Sarı", Created=DateTime.Now},
+				new Renk(){ Id=16 ,Name="Siyah", Created=DateTime.Now},
+				new Renk(){ Id=17 ,Name="Turkuaz", Created=DateTime.Now},
+				new Renk(){ Id=18 ,Name="Turuncu", Created=DateTime.Now},
+				new Renk(){ Id=19 ,Name="Yeşil", Created=DateTime.Now},
+				new Renk(){ Id=20 ,Name="Çok Renkli", Created=DateTime.Now}
+				);
 			//Admin Role Add
 
 			builder.Entity<IdentityRole<int>>()
