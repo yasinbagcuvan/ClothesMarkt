@@ -4,6 +4,7 @@ using ClothesMarkt.DAL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClothesMarkt.DAL.Migrations
 {
     [DbContext(typeof(ClothesMarktDbContext))]
-    partial class ClothesMarktDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240526123908_without renk hasdata")]
+    partial class withoutrenkhasdata
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -72,134 +75,6 @@ namespace ClothesMarkt.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Colors");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Created = new DateTime(2024, 5, 26, 17, 28, 3, 56, DateTimeKind.Local).AddTicks(9763),
-                            Name = "Altın"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Created = new DateTime(2024, 5, 26, 17, 28, 3, 56, DateTimeKind.Local).AddTicks(9765),
-                            Name = "Bej"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Created = new DateTime(2024, 5, 26, 17, 28, 3, 56, DateTimeKind.Local).AddTicks(9768),
-                            Name = "Beyaz"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Created = new DateTime(2024, 5, 26, 17, 28, 3, 56, DateTimeKind.Local).AddTicks(9770),
-                            Name = "Bordo"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Created = new DateTime(2024, 5, 26, 17, 28, 3, 56, DateTimeKind.Local).AddTicks(9772),
-                            Name = "Ekru"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Created = new DateTime(2024, 5, 26, 17, 28, 3, 56, DateTimeKind.Local).AddTicks(9774),
-                            Name = "Gri"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Created = new DateTime(2024, 5, 26, 17, 28, 3, 56, DateTimeKind.Local).AddTicks(9776),
-                            Name = "Gümüş"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Created = new DateTime(2024, 5, 26, 17, 28, 3, 56, DateTimeKind.Local).AddTicks(9777),
-                            Name = "Haki"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Created = new DateTime(2024, 5, 26, 17, 28, 3, 56, DateTimeKind.Local).AddTicks(9779),
-                            Name = "Kahverengi"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Created = new DateTime(2024, 5, 26, 17, 28, 3, 56, DateTimeKind.Local).AddTicks(9781),
-                            Name = "Kırmızı"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Created = new DateTime(2024, 5, 26, 17, 28, 3, 56, DateTimeKind.Local).AddTicks(9783),
-                            Name = "Lacivert"
-                        },
-                        new
-                        {
-                            Id = 12,
-                            Created = new DateTime(2024, 5, 26, 17, 28, 3, 56, DateTimeKind.Local).AddTicks(9785),
-                            Name = "Mavi"
-                        },
-                        new
-                        {
-                            Id = 13,
-                            Created = new DateTime(2024, 5, 26, 17, 28, 3, 56, DateTimeKind.Local).AddTicks(9787),
-                            Name = "Metalik"
-                        },
-                        new
-                        {
-                            Id = 14,
-                            Created = new DateTime(2024, 5, 26, 17, 28, 3, 56, DateTimeKind.Local).AddTicks(9788),
-                            Name = "Mor"
-                        },
-                        new
-                        {
-                            Id = 15,
-                            Created = new DateTime(2024, 5, 26, 17, 28, 3, 56, DateTimeKind.Local).AddTicks(9790),
-                            Name = "Pembe"
-                        },
-                        new
-                        {
-                            Id = 16,
-                            Created = new DateTime(2024, 5, 26, 17, 28, 3, 56, DateTimeKind.Local).AddTicks(9792),
-                            Name = "Sarı"
-                        },
-                        new
-                        {
-                            Id = 17,
-                            Created = new DateTime(2024, 5, 26, 17, 28, 3, 56, DateTimeKind.Local).AddTicks(9794),
-                            Name = "Siyah"
-                        },
-                        new
-                        {
-                            Id = 18,
-                            Created = new DateTime(2024, 5, 26, 17, 28, 3, 56, DateTimeKind.Local).AddTicks(9796),
-                            Name = "Turkuaz"
-                        },
-                        new
-                        {
-                            Id = 19,
-                            Created = new DateTime(2024, 5, 26, 17, 28, 3, 56, DateTimeKind.Local).AddTicks(9797),
-                            Name = "Turuncu"
-                        },
-                        new
-                        {
-                            Id = 20,
-                            Created = new DateTime(2024, 5, 26, 17, 28, 3, 56, DateTimeKind.Local).AddTicks(9799),
-                            Name = "Yeşil"
-                        },
-                        new
-                        {
-                            Id = 21,
-                            Created = new DateTime(2024, 5, 26, 17, 28, 3, 56, DateTimeKind.Local).AddTicks(9801),
-                            Name = "Çok Renkli"
-                        });
                 });
 
             modelBuilder.Entity("ClothesMarkt.Entities.Shirt", b =>
@@ -542,16 +417,16 @@ namespace ClothesMarkt.DAL.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5a232034-7a38-46ad-8eef-df09f54a0303",
+                            ConcurrencyStamp = "e202d3a1-34e6-4abf-84e2-d65591bda9bb",
                             Email = "admin@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@MAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFmOhSJvu0o4uAnOCBkEUdODc/U38w0uINglSfVzfzKQ1QEYlj2gLeLbQAlWTp3Ckg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDKHT0rRY9VLHf4fsqDSwj9+7ws0H1XqM5ebb6dSFkU9eOLQUQqn7XklS301c9L/Bw==",
                             PhoneNumber = "-",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "05ce0739-e5f0-442a-8cac-ca85d2527ef1",
+                            SecurityStamp = "6c35fbd1-39af-4dd2-9c98-25904faf0ef5",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
