@@ -1,5 +1,7 @@
-﻿@using ClothesMarkt.Enums.OrtakEnums
+﻿
+@using ClothesMarkt.Enums.OrtakEnums
 @using ClothesMarkt.Enums.Shirt
+
 <h1>ÜRÜN EKLEME</h1>
 @model ShirtViewModel
 <form asp-action="Create" method="post" enctype="multipart/form-data" id="accept-form">
@@ -17,6 +19,12 @@
 				<select asp-for="CategoryId" class="form-select" asp-items="@ViewBag.Categories"></select>
 				<span asp-validation-for="CategoryId" class="form-text text-danger"></span>
 			</div>
+			<div>
+				<label asp-for="Renkler" class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.Renkler)</label>
+				<div class="form-check form-switch">
+					<select asp-for="Renkler" class="form-select" asp-items="@ViewBag.Renkler"></select>
+					<span asp-validation-for="Renkler" class="form-text text-danger"></span>
+				</div>
 		</div>
 			<label asp-for="UnitPrice" class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.UnitPrice)</label>
 		<div class="input-group mb-3">
@@ -24,6 +32,9 @@
 			<input asp-for="UnitPrice" type="number" step="10" class="form-control" aria-label="Amount (to the nearest dollar)">
 			<span asp-validation-for="UnitPrice" class="input-group-text">.00</span>
 		</div>
+
+
+
 		<div>
 
 			<label asp-for="CepTipi" class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.CepTipi)</label>

@@ -13,16 +13,18 @@ namespace ClothesMarkt.WebApp.Controllers
     {
         private ShirtManager _shirtManager;
         private CategoryManager _categoryManager;
+        private RenkManager _renkManager;
         int _rowNum = 1;
 
-        public ShirtController(ShirtManager shirtManager, CategoryManager categoryManager)
-        {
-            _shirtManager = shirtManager;
-            _categoryManager = categoryManager;
-        }
+		public ShirtController(ShirtManager shirtManager, CategoryManager categoryManager, RenkManager renkManager)
+		{
+			_shirtManager = shirtManager;
+			_categoryManager = categoryManager;
+			_renkManager = renkManager;
+		}
 
-        // GET: ShirtController
-        public ActionResult Index()
+		// GET: ShirtController
+		public ActionResult Index()
         {
             List<ShirtViewModel> list = _shirtManager.GetAll().ToList();
             foreach (var item in list)
@@ -44,6 +46,7 @@ namespace ClothesMarkt.WebApp.Controllers
         {
             ShirtViewModel model = new ShirtViewModel();
             List<SelectListItem> categories = new List<SelectListItem>();
+            List<SelectListItem> renkler = new List<SelectListItem>();
             if (_categoryManager.GetAll().ToList() == null)
             {
                 ViewBag.ErrorMessage = "Ürün ekleyebilmek için öncelikle kategori eklemelisiniz";
@@ -58,9 +61,19 @@ namespace ClothesMarkt.WebApp.Controllers
                 categories.Add(new SelectListItem { Text = vm.Name, Value = vm.Id.ToString() });
             }
 
-            ViewBag.Categories = categories;   
+			List<RenkViewModel> renkList = _renkManager.GetAll().ToList();
+			renkler.Add(new SelectListItem { Text = "Renk seçiniz", Value = "-1", Selected = true });
 
-            return View(model);
+			foreach (RenkViewModel vm in renkList)
+			{
+				renkler.Add(new SelectListItem { Text = vm.Name, Value = vm.Id.ToString() });
+			}
+            
+			ViewBag.Categories = categories;
+            ViewBag.Renkler = renkler;
+
+
+			return View(model);
         }
 
         // POST: ShirtController/Create

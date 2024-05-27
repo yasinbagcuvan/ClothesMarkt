@@ -39,6 +39,10 @@ builder.Services.AddScoped<ShirtRepo>();
 builder.Services.AddScoped<ShirtService>();
 builder.Services.AddScoped<ShirtManager>();
 
+builder.Services.AddScoped<RenkRepo>();
+builder.Services.AddScoped<RenkService>();
+builder.Services.AddScoped<RenkManager>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
