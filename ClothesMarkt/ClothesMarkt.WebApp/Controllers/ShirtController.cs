@@ -72,7 +72,6 @@ namespace ClothesMarkt.WebApp.Controllers
 			ViewBag.Categories = categories;
             ViewBag.Renkler = renkler;
 
-
 			return View(model);
         }
 
@@ -96,6 +95,8 @@ namespace ClothesMarkt.WebApp.Controllers
                     //Resmi kaydet
                     vm.PictureFormFile.CopyTo(akisOrtami);
                     vm.PictureFormFile.CopyTo(memory);
+
+                    vm.Renkler = _renkManager.GetAll().Where(r => vm.RenkId.Contains(r.Id)).ToList();
 
                   
                     vm.PictureFile = memory.ToArray();

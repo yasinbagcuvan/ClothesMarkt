@@ -17,7 +17,8 @@ namespace ClothesMarkt.Entities
 		public int CategoryId { get; set; }
 		public string Picture { get; set; }
 		public byte[] PictureFile { get; set; }
-		public ICollection<ShirtsRenkler> Renkler { get; set; }
+		//public ICollection<ShirtsRenkler> Renkler { get; set; }
+		public ICollection<Renk> Renkler { get; set; }
 		public ProductSize ProductSize { get; set; }
 		public KolTipi? KolTipi { get; set; }
 		public KolBoyu? KolBoyu { get; set; }

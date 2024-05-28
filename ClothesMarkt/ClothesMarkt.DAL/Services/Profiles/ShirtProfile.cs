@@ -20,7 +20,7 @@ namespace ClothesMarkt.DAL.Services.Profiles
 
 			CreateMap<CategoryDto, Category>().ReverseMap();
 			CreateMap<RenkDto, Renk>().ReverseMap();
-			CreateMap<ShirtsRenklerDto, ShirtsRenkler>().ReverseMap();
+			//CreateMap<ShirtsRenklerDto, ShirtsRenkler>().ReverseMap();
 
 
 		}

@@ -4,6 +4,7 @@ using ClothesMarkt.DAL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClothesMarkt.DAL.Migrations
 {
     [DbContext(typeof(ClothesMarktDbContext))]
-    partial class ClothesMarktDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240528141714_ShirtsRenklers column change")]
+    partial class ShirtsRenklerscolumnchange
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -77,127 +80,127 @@ namespace ClothesMarkt.DAL.Migrations
                         new
                         {
                             Id = 1,
-                            Created = new DateTime(2024, 5, 28, 17, 35, 59, 859, DateTimeKind.Local).AddTicks(4088),
+                            Created = new DateTime(2024, 5, 28, 17, 17, 13, 474, DateTimeKind.Local).AddTicks(9236),
                             Name = "Altın"
                         },
                         new
                         {
                             Id = 2,
-                            Created = new DateTime(2024, 5, 28, 17, 35, 59, 859, DateTimeKind.Local).AddTicks(4091),
+                            Created = new DateTime(2024, 5, 28, 17, 17, 13, 474, DateTimeKind.Local).AddTicks(9240),
                             Name = "Bej"
                         },
                         new
                         {
                             Id = 3,
-                            Created = new DateTime(2024, 5, 28, 17, 35, 59, 859, DateTimeKind.Local).AddTicks(4093),
+                            Created = new DateTime(2024, 5, 28, 17, 17, 13, 474, DateTimeKind.Local).AddTicks(9241),
                             Name = "Beyaz"
                         },
                         new
                         {
                             Id = 4,
-                            Created = new DateTime(2024, 5, 28, 17, 35, 59, 859, DateTimeKind.Local).AddTicks(4095),
+                            Created = new DateTime(2024, 5, 28, 17, 17, 13, 474, DateTimeKind.Local).AddTicks(9243),
                             Name = "Bordo"
                         },
                         new
                         {
                             Id = 5,
-                            Created = new DateTime(2024, 5, 28, 17, 35, 59, 859, DateTimeKind.Local).AddTicks(4097),
+                            Created = new DateTime(2024, 5, 28, 17, 17, 13, 474, DateTimeKind.Local).AddTicks(9245),
                             Name = "Ekru"
                         },
                         new
                         {
                             Id = 6,
-                            Created = new DateTime(2024, 5, 28, 17, 35, 59, 859, DateTimeKind.Local).AddTicks(4099),
+                            Created = new DateTime(2024, 5, 28, 17, 17, 13, 474, DateTimeKind.Local).AddTicks(9247),
                             Name = "Gri"
                         },
                         new
                         {
                             Id = 7,
-                            Created = new DateTime(2024, 5, 28, 17, 35, 59, 859, DateTimeKind.Local).AddTicks(4101),
+                            Created = new DateTime(2024, 5, 28, 17, 17, 13, 474, DateTimeKind.Local).AddTicks(9249),
                             Name = "Gümüş"
                         },
                         new
                         {
                             Id = 8,
-                            Created = new DateTime(2024, 5, 28, 17, 35, 59, 859, DateTimeKind.Local).AddTicks(4103),
+                            Created = new DateTime(2024, 5, 28, 17, 17, 13, 474, DateTimeKind.Local).AddTicks(9251),
                             Name = "Haki"
                         },
                         new
                         {
                             Id = 9,
-                            Created = new DateTime(2024, 5, 28, 17, 35, 59, 859, DateTimeKind.Local).AddTicks(4105),
+                            Created = new DateTime(2024, 5, 28, 17, 17, 13, 474, DateTimeKind.Local).AddTicks(9253),
                             Name = "Kahverengi"
                         },
                         new
                         {
                             Id = 10,
-                            Created = new DateTime(2024, 5, 28, 17, 35, 59, 859, DateTimeKind.Local).AddTicks(4107),
+                            Created = new DateTime(2024, 5, 28, 17, 17, 13, 474, DateTimeKind.Local).AddTicks(9255),
                             Name = "Kırmızı"
                         },
                         new
                         {
                             Id = 11,
-                            Created = new DateTime(2024, 5, 28, 17, 35, 59, 859, DateTimeKind.Local).AddTicks(4109),
+                            Created = new DateTime(2024, 5, 28, 17, 17, 13, 474, DateTimeKind.Local).AddTicks(9257),
                             Name = "Lacivert"
                         },
                         new
                         {
                             Id = 12,
-                            Created = new DateTime(2024, 5, 28, 17, 35, 59, 859, DateTimeKind.Local).AddTicks(4111),
+                            Created = new DateTime(2024, 5, 28, 17, 17, 13, 474, DateTimeKind.Local).AddTicks(9258),
                             Name = "Mavi"
                         },
                         new
                         {
                             Id = 13,
-                            Created = new DateTime(2024, 5, 28, 17, 35, 59, 859, DateTimeKind.Local).AddTicks(4112),
+                            Created = new DateTime(2024, 5, 28, 17, 17, 13, 474, DateTimeKind.Local).AddTicks(9260),
                             Name = "Metalik"
                         },
                         new
                         {
                             Id = 14,
-                            Created = new DateTime(2024, 5, 28, 17, 35, 59, 859, DateTimeKind.Local).AddTicks(4114),
+                            Created = new DateTime(2024, 5, 28, 17, 17, 13, 474, DateTimeKind.Local).AddTicks(9262),
                             Name = "Mor"
                         },
                         new
                         {
                             Id = 15,
-                            Created = new DateTime(2024, 5, 28, 17, 35, 59, 859, DateTimeKind.Local).AddTicks(4116),
+                            Created = new DateTime(2024, 5, 28, 17, 17, 13, 474, DateTimeKind.Local).AddTicks(9309),
                             Name = "Pembe"
                         },
                         new
                         {
                             Id = 16,
-                            Created = new DateTime(2024, 5, 28, 17, 35, 59, 859, DateTimeKind.Local).AddTicks(4118),
+                            Created = new DateTime(2024, 5, 28, 17, 17, 13, 474, DateTimeKind.Local).AddTicks(9320),
                             Name = "Sarı"
                         },
                         new
                         {
                             Id = 17,
-                            Created = new DateTime(2024, 5, 28, 17, 35, 59, 859, DateTimeKind.Local).AddTicks(4120),
+                            Created = new DateTime(2024, 5, 28, 17, 17, 13, 474, DateTimeKind.Local).AddTicks(9322),
                             Name = "Siyah"
                         },
                         new
                         {
                             Id = 18,
-                            Created = new DateTime(2024, 5, 28, 17, 35, 59, 859, DateTimeKind.Local).AddTicks(4122),
+                            Created = new DateTime(2024, 5, 28, 17, 17, 13, 474, DateTimeKind.Local).AddTicks(9324),
                             Name = "Turkuaz"
                         },
                         new
                         {
                             Id = 19,
-                            Created = new DateTime(2024, 5, 28, 17, 35, 59, 859, DateTimeKind.Local).AddTicks(4124),
+                            Created = new DateTime(2024, 5, 28, 17, 17, 13, 474, DateTimeKind.Local).AddTicks(9325),
                             Name = "Turuncu"
                         },
                         new
                         {
                             Id = 20,
-                            Created = new DateTime(2024, 5, 28, 17, 35, 59, 859, DateTimeKind.Local).AddTicks(4125),
+                            Created = new DateTime(2024, 5, 28, 17, 17, 13, 474, DateTimeKind.Local).AddTicks(9327),
                             Name = "Yeşil"
                         },
                         new
                         {
                             Id = 21,
-                            Created = new DateTime(2024, 5, 28, 17, 35, 59, 859, DateTimeKind.Local).AddTicks(4127),
+                            Created = new DateTime(2024, 5, 28, 17, 17, 13, 474, DateTimeKind.Local).AddTicks(9329),
                             Name = "Çok Renkli"
                         });
                 });
@@ -281,6 +284,24 @@ namespace ClothesMarkt.DAL.Migrations
                     b.ToTable("Shirts");
                 });
 
+            modelBuilder.Entity("ClothesMarkt.Entities.ShirtsRenkler", b =>
+                {
+                    b.Property<int>("ShirtId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RenkId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ShirtId", "RenkId");
+
+                    b.HasIndex("RenkId");
+
+                    b.ToTable("ShirtsRenklers");
+                });
+
             modelBuilder.Entity("ClothesMarkt.Entities.Tshirt", b =>
                 {
                     b.Property<int>("Id")
@@ -352,6 +373,33 @@ namespace ClothesMarkt.DAL.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Tshirts");
+                });
+
+            modelBuilder.Entity("ClothesMarkt.Entities.TshirtsRenkler", b =>
+                {
+                    b.Property<int>("TshirtId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RenkId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RowNum")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("Updated")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("TshirtId", "RenkId");
+
+                    b.HasIndex("RenkId");
+
+                    b.ToTable("TshirtsRenklers");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
@@ -488,16 +536,16 @@ namespace ClothesMarkt.DAL.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ee1c0fb8-4fbf-4550-8c3c-1a02dad361ed",
+                            ConcurrencyStamp = "b1a58037-3656-467b-a273-07bd4f453679",
                             Email = "admin@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@MAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGdcRpN2hKXjVWINkaTDUunzx3/40juu8EeZZ1snDZ8sOWbODFhP+Dspau8fRV2m2g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKv2prZbz71X2VjKyjHTj68YNkFp8vke7QgRw01Ajh42Af8XqpykOdsW+Tdy6c1dsw==",
                             PhoneNumber = "-",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "40409eef-95ad-4213-86ed-56efffb1b6fc",
+                            SecurityStamp = "f8e871df-a161-4824-a87f-ed122747aa1c",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
@@ -589,36 +637,6 @@ namespace ClothesMarkt.DAL.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("RenkShirt", b =>
-                {
-                    b.Property<int>("RenklerId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ShirtsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("RenklerId", "ShirtsId");
-
-                    b.HasIndex("ShirtsId");
-
-                    b.ToTable("RenkShirt");
-                });
-
-            modelBuilder.Entity("RenkTshirt", b =>
-                {
-                    b.Property<int>("RenklerId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TshirtsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("RenklerId", "TshirtsId");
-
-                    b.HasIndex("TshirtsId");
-
-                    b.ToTable("RenkTshirt");
-                });
-
             modelBuilder.Entity("ClothesMarkt.Entities.Shirt", b =>
                 {
                     b.HasOne("ClothesMarkt.Entities.Category", "Category")
@@ -630,6 +648,25 @@ namespace ClothesMarkt.DAL.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("ClothesMarkt.Entities.ShirtsRenkler", b =>
+                {
+                    b.HasOne("ClothesMarkt.Entities.Renk", "Renk")
+                        .WithMany("Shirts")
+                        .HasForeignKey("RenkId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ClothesMarkt.Entities.Shirt", "Shirt")
+                        .WithMany("Renkler")
+                        .HasForeignKey("ShirtId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Renk");
+
+                    b.Navigation("Shirt");
+                });
+
             modelBuilder.Entity("ClothesMarkt.Entities.Tshirt", b =>
                 {
                     b.HasOne("ClothesMarkt.Entities.Category", "Category")
@@ -639,6 +676,25 @@ namespace ClothesMarkt.DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("ClothesMarkt.Entities.TshirtsRenkler", b =>
+                {
+                    b.HasOne("ClothesMarkt.Entities.Renk", "Renk")
+                        .WithMany("Tshirts")
+                        .HasForeignKey("RenkId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ClothesMarkt.Entities.Tshirt", "Tshirt")
+                        .WithMany("Renkler")
+                        .HasForeignKey("TshirtId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Renk");
+
+                    b.Navigation("Tshirt");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -692,41 +748,28 @@ namespace ClothesMarkt.DAL.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("RenkShirt", b =>
-                {
-                    b.HasOne("ClothesMarkt.Entities.Renk", null)
-                        .WithMany()
-                        .HasForeignKey("RenklerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ClothesMarkt.Entities.Shirt", null)
-                        .WithMany()
-                        .HasForeignKey("ShirtsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("RenkTshirt", b =>
-                {
-                    b.HasOne("ClothesMarkt.Entities.Renk", null)
-                        .WithMany()
-                        .HasForeignKey("RenklerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ClothesMarkt.Entities.Tshirt", null)
-                        .WithMany()
-                        .HasForeignKey("TshirtsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("ClothesMarkt.Entities.Category", b =>
                 {
                     b.Navigation("Shirts");
 
                     b.Navigation("Tshirts");
+                });
+
+            modelBuilder.Entity("ClothesMarkt.Entities.Renk", b =>
+                {
+                    b.Navigation("Shirts");
+
+                    b.Navigation("Tshirts");
+                });
+
+            modelBuilder.Entity("ClothesMarkt.Entities.Shirt", b =>
+                {
+                    b.Navigation("Renkler");
+                });
+
+            modelBuilder.Entity("ClothesMarkt.Entities.Tshirt", b =>
+                {
+                    b.Navigation("Renkler");
                 });
 #pragma warning restore 612, 618
         }
