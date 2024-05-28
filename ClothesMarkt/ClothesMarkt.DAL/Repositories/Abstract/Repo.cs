@@ -26,7 +26,7 @@ namespace ClothesMarkt.DAL.Repositories.Abstract
 		public int Add(TEntity entity)
 		{
 			_context.Entry(entity).State = EntityState.Added;
-			_context.Add(entity);
+            entities.Add(entity);
 			return _context.SaveChanges();
 		}
 
