@@ -12,7 +12,7 @@ namespace ClothesMarkt.Entities
 		//public ICollection<TshirtsRenkler>? Tshirts { get; set; }
 		//public ICollection<ShirtsRenkler>? Shirts { get; set; }
 
-		public ICollection<Tshirt>? Tshirts { get; set; }
-		public ICollection<Shirt>? Shirts { get; set; }
+		public ICollection<Tshirt>? Tshirts { get; set; } = new List<Tshirt>();
+		public ICollection<Shirt>? Shirts { get; set; } = new List<Shirt>();
 	}
 }

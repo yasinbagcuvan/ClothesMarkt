@@ -20,7 +20,8 @@ namespace ClothesMarkt.ViewModels
 		public string Picture { get; set; }
 		public byte[] PictureFile { get; set; }
         public IFormFile PictureFormFile { get; set; }
-        public IEnumerable<TshirtsRenklerViewModel>? Renkler { get; set; }
+        public IEnumerable<RenkViewModel>? Renkler { get; set; }
+        public int[] RenkId { get; set; }
 		public ProductSize ProductSize { get; set; }
 		public KolTipi? KolTipi { get; set; }
 		public KolBoyu? KolBoyu { get; set; }

@@ -96,6 +96,13 @@ namespace ClothesMarkt.WebApp.Controllers
                     vm.PictureFormFile.CopyTo(akisOrtami);
                     vm.PictureFormFile.CopyTo(memory);
 
+                    //vm.Renkler = new List<RenkViewModel>() { 
+                    //    new RenkViewModel(){Name = "Siyah", Created = DateTime.Now},
+                    //    new RenkViewModel(){Name = "Beyaz", Created = DateTime.Now},
+                    //    new RenkViewModel(){Name = "Sarı", Created = DateTime.Now},
+                    //    new RenkViewModel(){Name = "Lacivert", Created = DateTime.Now},
+                    //};
+
                     vm.Renkler = _renkManager.GetAll().Where(r => vm.RenkId.Contains(r.Id)).ToList();
 
                   

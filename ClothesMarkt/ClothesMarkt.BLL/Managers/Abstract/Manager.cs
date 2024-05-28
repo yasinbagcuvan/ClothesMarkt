@@ -28,6 +28,12 @@ namespace ClothesMarkt.BLL.Managers.Abstract
                 cfg.CreateMap<ShirtViewModel, ShirtDto>().ForMember(x => x.Picture, y => y.MapFrom(z => (z.PictureFormFile == null) ? z.Picture : z.PictureFormFile.FileName));
                 cfg.CreateMap<ShirtDto, ShirtViewModel>().ForMember(x => x.Picture, y => y.MapFrom(z => z.Picture));
 
+                cfg.CreateMap<ShirtViewModel, ShirtDto>().ForMember(x => x.Renkler, y => y.MapFrom(z => z.Renkler));
+                cfg.CreateMap<ShirtDto, ShirtViewModel>().ForMember(x => x.Renkler, y => y.MapFrom(z => z.Renkler));
+
+                cfg.CreateMap<ShirtViewModel, ShirtDto>().ForMember(x => x.Category, y => y.MapFrom(z => z.Category));
+                cfg.CreateMap<ShirtDto, ShirtViewModel>().ForMember(x => x.Category, y => y.MapFrom(z => z.Category));
+
                 cfg.CreateMap<ShirtViewModel, ShirtDto>().ForMember(x => x.Picture, y => y.MapFrom(z => (z.PictureFormFile == null) ? z.Picture : z.PictureFormFile.FileName));
                 cfg.CreateMap<ShirtDto, ShirtViewModel>().ForMember(x => x.Picture, y => y.MapFrom(z => z.Picture));
 
@@ -35,8 +41,16 @@ namespace ClothesMarkt.BLL.Managers.Abstract
                 cfg.CreateMap<TshirtViewModel, TshirtDto>().ForMember(x => x.Picture, y => y.MapFrom(z => (z.PictureFormFile == null) ? z.Picture : z.PictureFormFile.FileName));
                 cfg.CreateMap<TshirtDto, TshirtViewModel>().ForMember(x => x.Picture, y => y.MapFrom(z => z.Picture));
 
+                cfg.CreateMap<TshirtViewModel, TshirtDto>().ForMember(x => x.Renkler, y => y.MapFrom(z => z.Renkler));
+                cfg.CreateMap<TshirtDto, TshirtViewModel>().ForMember(x => x.Renkler, y => y.MapFrom(z => z.Renkler));
+
                 cfg.CreateMap<TshirtViewModel, TshirtDto>().ForMember(x => x.Picture, y => y.MapFrom(z => (z.PictureFormFile == null) ? z.Picture : z.PictureFormFile.FileName));
                 cfg.CreateMap<TshirtDto, TshirtViewModel>().ForMember(x => x.Picture, y => y.MapFrom(z => z.Picture));
+
+                cfg.CreateMap<RenkViewModel, RenkDto>().ReverseMap();
+                cfg.CreateMap<CategoryViewModel, CategoryDto>().ReverseMap();
+
+
             });
 
 			_mapper = _config.CreateMapper();

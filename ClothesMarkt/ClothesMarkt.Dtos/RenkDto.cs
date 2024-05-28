@@ -9,7 +9,7 @@ namespace ClothesMarkt.Dtos
 	public class RenkDto : BaseDto
 	{
 		public string Name { get; set; }
-		public IEnumerable<TshirtsRenklerDto>? Tshirts { get; set; }
-		public IEnumerable<ShirtsRenklerDto>? Shirts { get; set; }
+		public IEnumerable<TshirtDto>? Tshirts { get; set; }
+		public IEnumerable<ShirtDto>? Shirts { get; set; }
 	}
 }

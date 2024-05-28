@@ -18,7 +18,7 @@ namespace ClothesMarkt.DAL.Repositories.Abstract
 		{
 			_context = context;
 
-			_context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTrackingWithIdentityResolution;
+			//_context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTrackingWithIdentityResolution;
 
 			entities = _context.Set<TEntity>();
 		}
@@ -26,7 +26,7 @@ namespace ClothesMarkt.DAL.Repositories.Abstract
 		public int Add(TEntity entity)
 		{
 			_context.Entry(entity).State = EntityState.Added;
-			entities.Add(entity);
+			_context.Add(entity);
 			return _context.SaveChanges();
 		}
 
