@@ -7,38 +7,38 @@ using System.Threading.Tasks;
 
 namespace ClothesMarkt.Entities
 {
-	public class ShirtsRenkler 
+	public class ShirtsRenkler : BaseEntity
 	{
 
 		public int ShirtsId { get; set; }
-		//public Shirt Shirt { get; set; }
+		public Shirt Shirt { get; set; }
 
 
 		public int RenklerId { get; set; }
 
-		//[ForeignKey("RenklerId")]
-		//public Renk Renk { get; set; }
+		
+		public Renk Renk { get; set; }
 	}
 
-	public class RenkShirt
-	{
-        public int ShirtsId { get; set; }
-        public Shirt Shirt { get; set; }
+	//public class RenkShirt
+	//{
+ //       public int ShirtsId { get; set; }
+ //       public Shirt Shirt { get; set; }
 
-        public int RenklerId { get; set; }
+ //       public int RenklerId { get; set; }
 
-        [ForeignKey("RenklerId")]
-        public Renk Renk { get; set; }
-    }
+ //       [ForeignKey("RenklerId")]
+ //       public Renk Renk { get; set; }
+ //   }
 
-	public class RenkTshirt
-	{
-        public int TshirtsId { get; set; }
-        public Tshirt Tshirt { get; set; }
+	//public class RenkTshirt
+	//{
+ //       public int TshirtsId { get; set; }
+ //       public Tshirt Tshirt { get; set; }
 
-        public int RenklerId { get; set; }
+ //       public int RenklerId { get; set; }
 
-        [ForeignKey("RenklerId")]
-        public Renk Renk { get; set; }
-    }
+ //       [ForeignKey("RenklerId")]
+ //       public Renk Renk { get; set; }
+ //   }
 }

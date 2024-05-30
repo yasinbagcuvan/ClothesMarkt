@@ -9,7 +9,7 @@ namespace ClothesMarkt.ViewModels
 	public class RenkViewModel : BaseViewModel
 	{
 		public string Name { get; set; }
-		public ICollection<TshirtViewModel>? Tshirts { get; set; } = null;
-		public ICollection<ShirtViewModel>? Shirts { get; set; } = null;
+		public ICollection<TshirtsRenklerViewModel>? Tshirts { get; set; } = null;
+		public ICollection<ShirtsRenklerViewModel>? Shirts { get; set; } = null;
 	}
 }

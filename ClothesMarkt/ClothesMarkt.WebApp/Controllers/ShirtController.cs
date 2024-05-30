@@ -1,11 +1,16 @@
 ﻿using ClothesMarkt.BLL.Managers.Concrete;
+using ClothesMarkt.DAL.Context;
+using ClothesMarkt.DAL.Repositories.Concrete;
 using ClothesMarkt.Dtos;
+using ClothesMarkt.Entities;
 using ClothesMarkt.ViewModels;
 using Humanizer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.CodeAnalysis.Rename;
+using Microsoft.EntityFrameworkCore;
 
 namespace ClothesMarkt.WebApp.Controllers
 {
@@ -14,13 +19,16 @@ namespace ClothesMarkt.WebApp.Controllers
         private ShirtManager _shirtManager;
         private CategoryManager _categoryManager;
         private RenkManager _renkManager;
+        private ClothesMarktDbContext _context;
+
         int _rowNum = 1;
 
-		public ShirtController(ShirtManager shirtManager, CategoryManager categoryManager, RenkManager renkManager)
+		public ShirtController(ShirtManager shirtManager, CategoryManager categoryManager, RenkManager renkManager, ClothesMarktDbContext clothesMarktDbContext)
 		{
 			_shirtManager = shirtManager;
 			_categoryManager = categoryManager;
 			_renkManager = renkManager;
+			_context = clothesMarktDbContext;
 		}
 
 		// GET: ShirtController
@@ -96,32 +104,70 @@ namespace ClothesMarkt.WebApp.Controllers
                     vm.PictureFormFile.CopyTo(akisOrtami);
                     vm.PictureFormFile.CopyTo(memory);
 
-                    //vm.Renkler = new List<RenkViewModel>() { 
-                    //    new RenkViewModel(){Name = "Siyah", Created = DateTime.Now},
-                    //    new RenkViewModel(){Name = "Beyaz", Created = DateTime.Now},
-                    //    new RenkViewModel(){Name = "Sarı", Created = DateTime.Now},
-                    //    new RenkViewModel(){Name = "Lacivert", Created = DateTime.Now},
-                    //};
+					//vm.Renkler = new List<RenkViewModel>() { 
+					//    new RenkViewModel(){Name = "Siyah", Created = DateTime.Now},
+					//    new RenkViewModel(){Name = "Beyaz", Created = DateTime.Now},
+					//    new RenkViewModel(){Name = "Sarı", Created = DateTime.Now},
+					//    new RenkViewModel(){Name = "Lacivert", Created = DateTime.Now},
+					//};
 
-                    vm.Renkler = _renkManager.GetAll().Where(r => vm.RenkId.Contains(r.Id)).ToList();
+					//vm.Renkler = (_renkManager.GetAll().Where(r => vm.RenkId.Contains(r.Id)).ToList());
+					
+					vm.PictureFile = memory.ToArray();
 
-                  
-                    vm.PictureFile = memory.ToArray();
+                    int id =_shirtManager.Add(vm);
 
-                    _shirtManager.Add(vm);
+					if (vm.RenkId != null)
+					{
+						List<ShirtsRenkler> list = new List<ShirtsRenkler>();
+						foreach (var renkId in vm.RenkId)
+						{
+                            var tshirtRenk = new ShirtsRenkler
+                            {
+                                ShirtsId = id,
 
-                    akisOrtami.Dispose();
+								RenklerId = renkId
+							};
+						_context.ShirtsRenklers.Add(tshirtRenk);
+						}
+						_context.SaveChanges();
+					}
+
+					akisOrtami.Dispose();
                     memory.Dispose();
 
                     return RedirectToAction("Index");
                 }
                 return View();
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
-            }
-        }
+				ModelState.AddModelError("", "An error occurred while creating the T-shirt.");
+			}
+			List<SelectListItem> categories = new List<SelectListItem>();
+			List<SelectListItem> renkler = new List<SelectListItem>();
+
+
+			List<CategoryViewModel> catList = _categoryManager.GetAll().ToList();
+			categories.Add(new SelectListItem { Text = "Kategori seçiniz", Value = "-1", Selected = true });
+
+			foreach (CategoryViewModel vm1 in catList)
+			{
+				categories.Add(new SelectListItem { Text = vm1.Name, Value = vm1.Id.ToString() });
+			}
+
+			List<RenkViewModel> renkList = _renkManager.GetAll().ToList();
+			renkler.Add(new SelectListItem { Text = "Renk seçiniz", Value = "-1", Selected = true });
+
+			foreach (RenkViewModel vm1 in renkList)
+			{
+				renkler.Add(new SelectListItem { Text = vm1.Name, Value = vm1.Id.ToString() });
+			}
+
+			ViewBag.Categories = categories;
+			ViewBag.Renkler = renkler;
+			return View(vm);
+		}
 
         // GET: ShirtController/Edit/5
         public ActionResult Edit(int id)

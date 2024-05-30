@@ -16,8 +16,9 @@ namespace ClothesMarkt.DAL.Context
 	{
 		public DbSet<Tshirt> Tshirts { get; set; }
 		public DbSet<Shirt> Shirts { get; set; }
-		public DbSet<RenkShirt> RenkShirt { get; set; }
-		//public DbSet<TshirtsRenkler> TshirtsRenklers { get; set; }
+		//public DbSet<RenkShirt> RenkShirt { get; set; }
+		public DbSet<TshirtsRenkler> TshirtsRenklers { get; set; }
+		public DbSet<ShirtsRenkler> ShirtsRenklers { get; set; }
 		public DbSet<Category> Categories { get; set; }
 		public DbSet<Renk> Colors { get; set; }
 		public ClothesMarktDbContext(DbContextOptions<ClothesMarktDbContext> options) : base(options)
@@ -88,55 +89,55 @@ namespace ClothesMarkt.DAL.Context
 					   RoleId = 1
 				   });
 
-            builder.Entity<RenkShirt>()
-						.HasKey(sr => new { sr.ShirtsId , sr.RenklerId });
+			//      builder.Entity<RenkShirt>()
+			//.HasKey(sr => new { sr.ShirtsId , sr.RenklerId });
 
-            builder.Entity<Shirt>()
-                    .HasMany(s => s.Renkler)
-                    .WithMany(r => r.Shirts)
-                    .UsingEntity<RenkShirt>(
-						r => r.HasOne(x => x.Renk).WithMany().HasForeignKey(x => x.RenklerId),
-						l => l.HasOne(x => x.Shirt).WithMany().HasForeignKey(x => x.ShirtsId)
-                        );
+			//      builder.Entity<Shirt>()
+			//              .HasMany(s => s.Renkler)
+			//              .WithMany(r => r.Shirts)
+			//              .UsingEntity<RenkShirt>(
+			//r => r.HasOne(x => x.Renk).WithMany().HasForeignKey(x => x.RenklerId),
+			//l => l.HasOne(x => x.Shirt).WithMany().HasForeignKey(x => x.ShirtsId)
+			//                  );
 
-            builder.Entity<Tshirt>()
-                    .HasMany(s => s.Renkler)
-                    .WithMany(r => r.Tshirts)
-                    .UsingEntity<RenkTshirt>(
-                        r => r.HasOne(x => x.Renk).WithMany().HasForeignKey(x => x.RenklerId),
-                        l => l.HasOne(x => x.Tshirt).WithMany().HasForeignKey(x => x.TshirtsId)
-                        );
+			//      builder.Entity<Tshirt>()
+			//              .HasMany(s => s.Renkler)
+			//              .WithMany(r => r.Tshirts)
+			//              .UsingEntity<RenkTshirt>(
+			//                  r => r.HasOne(x => x.Renk).WithMany().HasForeignKey(x => x.RenklerId),
+			//                  l => l.HasOne(x => x.Tshirt).WithMany().HasForeignKey(x => x.TshirtsId)
+			//                  );
 
-            //builder.Entity<ShirtsRenkler>()
-            //	.Ignore(gr => gr.Id)
-            //	.Ignore(gr => gr.RowNum)
-            //	.Ignore(gr => gr.Updated)
-            //	.HasKey(gr => new { gr.ShirtId, gr.RenkId });
+			builder.Entity<ShirtsRenkler>()
+				.Ignore(gr => gr.Id)
+				.Ignore(gr => gr.RowNum)
+				.Ignore(gr => gr.Updated)
+				.HasKey(gr => new { gr.ShirtsId, gr.RenklerId });
 
-            //builder.Entity<ShirtsRenkler>()
-            //	.HasOne(gr => gr.Shirt)
-            //	.WithMany(g => g.Renkler)
-            //	.HasForeignKey(gr => gr.ShirtId);
+			builder.Entity<ShirtsRenkler>()
+				.HasOne(gr => gr.Shirt)
+				.WithMany(g => g.Renkler)
+				.HasForeignKey(gr => gr.ShirtsId);
 
-            //builder.Entity<ShirtsRenkler>()
-            //	.HasOne(gr => gr.Renk)
-            //	.WithMany(r => r.Shirts)
-            //	.HasForeignKey(gr => gr.RenkId);
+			builder.Entity<ShirtsRenkler>()
+				.HasOne(gr => gr.Renk)
+				.WithMany(r => r.Shirts)
+				.HasForeignKey(gr => gr.RenklerId);
 
-            //builder.Entity<TshirtsRenkler>()
-            //	.HasKey(gr => new { gr.TshirtId, gr.RenkId });
+			builder.Entity<TshirtsRenkler>()
+				.HasKey(gr => new { gr.TshirtId, gr.RenkId });
 
-            //builder.Entity<TshirtsRenkler>()
-            //	.HasOne(gr => gr.Tshirt)
-            //	.WithMany(g => g.Renkler)
-            //	.HasForeignKey(gr => gr.TshirtId);
+			builder.Entity<TshirtsRenkler>()
+				.HasOne(gr => gr.Tshirt)
+				.WithMany(g => g.Renkler)
+				.HasForeignKey(gr => gr.TshirtId);
 
-            //builder.Entity<TshirtsRenkler>()
-            //	.HasOne(gr => gr.Renk)
-            //	.WithMany(r => r.Tshirts)
-            //	.HasForeignKey(gr => gr.RenkId);
+			builder.Entity<TshirtsRenkler>()
+				.HasOne(gr => gr.Renk)
+				.WithMany(r => r.Tshirts)
+				.HasForeignKey(gr => gr.RenkId);
 
-        }
+		}
 
 	}
 }

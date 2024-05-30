@@ -48,6 +48,7 @@ namespace ClothesMarkt.BLL.Managers.Abstract
                 cfg.CreateMap<TshirtDto, TshirtViewModel>().ForMember(x => x.Picture, y => y.MapFrom(z => z.Picture));
 
                 cfg.CreateMap<RenkViewModel, RenkDto>().ReverseMap();
+                cfg.CreateMap<ShirtsRenklerViewModel, ShirtsRenklerDto>().ReverseMap();
                 cfg.CreateMap<CategoryViewModel, CategoryDto>().ReverseMap();
 
 
