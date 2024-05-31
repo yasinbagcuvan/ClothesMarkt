@@ -3,19 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClothesMarkt.WebApp", "ClothesMarkt.WebApp\ClothesMarkt.WebApp.csproj", "{CF28E2FE-1AE8-4B4D-9C9E-D2988DD8752F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClothesMarkt.WebApp", "ClothesMarkt.WebApp\ClothesMarkt.WebApp.csproj", "{CF28E2FE-1AE8-4B4D-9C9E-D2988DD8752F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClothesMarkt.DAL", "ClothesMarkt.DAL\ClothesMarkt.DAL.csproj", "{E50897F4-2560-432F-8383-488B9362AB28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClothesMarkt.DAL", "ClothesMarkt.DAL\ClothesMarkt.DAL.csproj", "{E50897F4-2560-432F-8383-488B9362AB28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClothesMarkt.BLL", "ClothesMarkt.BLL\ClothesMarkt.BLL.csproj", "{1747A560-A44C-4D52-819C-42830AE1F507}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClothesMarkt.BLL", "ClothesMarkt.BLL\ClothesMarkt.BLL.csproj", "{1747A560-A44C-4D52-819C-42830AE1F507}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClothesMarkt.Entities", "ClothesMarkt.Entities\ClothesMarkt.Entities.csproj", "{C072C7E6-E1A6-4970-AFC1-17BCC2DC2D71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClothesMarkt.Entities", "ClothesMarkt.Entities\ClothesMarkt.Entities.csproj", "{C072C7E6-E1A6-4970-AFC1-17BCC2DC2D71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClothesMarkt.Dtos", "ClothesMarkt.Dtos\ClothesMarkt.Dtos.csproj", "{04760B23-45F6-4926-A72E-C2390E77E5FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClothesMarkt.Dtos", "ClothesMarkt.Dtos\ClothesMarkt.Dtos.csproj", "{04760B23-45F6-4926-A72E-C2390E77E5FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClothesMarkt.Enums", "ClothesMarkt.Enums\ClothesMarkt.Enums.csproj", "{BF9E8BB6-FE17-4C18-A730-13BFDC013DDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClothesMarkt.Enums", "ClothesMarkt.Enums\ClothesMarkt.Enums.csproj", "{BF9E8BB6-FE17-4C18-A730-13BFDC013DDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClothesMarkt.ViewModels", "ClothesMarkt.ViewModels\ClothesMarkt.ViewModels.csproj", "{ACCE4BB2-45E8-4EAB-BA45-AA3F3A66533D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClothesMarkt.ViewModels", "ClothesMarkt.ViewModels\ClothesMarkt.ViewModels.csproj", "{ACCE4BB2-45E8-4EAB-BA45-AA3F3A66533D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClothesMarkt.API", "ClothesMarkt.API\ClothesMarkt.API.csproj", "{A764BA88-B3EE-44AD-9679-0417BDE0273D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{ACCE4BB2-45E8-4EAB-BA45-AA3F3A66533D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACCE4BB2-45E8-4EAB-BA45-AA3F3A66533D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACCE4BB2-45E8-4EAB-BA45-AA3F3A66533D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A764BA88-B3EE-44AD-9679-0417BDE0273D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A764BA88-B3EE-44AD-9679-0417BDE0273D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A764BA88-B3EE-44AD-9679-0417BDE0273D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A764BA88-B3EE-44AD-9679-0417BDE0273D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
