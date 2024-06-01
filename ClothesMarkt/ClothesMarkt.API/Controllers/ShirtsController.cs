@@ -1,4 +1,8 @@
-﻿using ClothesMarkt.DAL.Context;
+﻿
+using ClothesMarkt.BLL.Managers.Concrete;
+using ClothesMarkt.DAL.Context;
+using ClothesMarkt.Entities;
+using ClothesMarkt.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClothesMarkt.API.Controllers
@@ -7,50 +11,30 @@ namespace ClothesMarkt.API.Controllers
     [ApiController]
     public class ShirtsController : Controller
     {
-        private ClothesMarktDbContext _db;
+        private ShirtManager _shirtManager;
 
-        public ShirtsController(ClothesMarktDbContext db)
+        public ShirtsController(ShirtManager shirtManager)
         {
-            _db = db;
+            _shirtManager = shirtManager;
         }
         [HttpGet("Listele")]
         public IActionResult Get()
         {
-            var list = _db.Tablolar.ToList();
-            if (!_db.Tablolar.ToList().Any())
+            var list = _shirtManager.GetAll().ToList();
+            if (!list.Any())
             {
                 return BadRequest("hata");
             }
             return Ok(list);
-        }
-        [HttpGet("AzListele")]
-        public IActionResult GetZa()
-        {
-            var list = _db.Tablolar.ToList().OrderByDescending(x => x.Ressam);
-            if (!_db.Tablolar.ToList().Any())
-            {
-                return BadRequest("hata");
-            }
-            return Ok(list);
-        }
-        [HttpGet("ZaListele")]
-        public IActionResult GetAz()
-        {
-            var list = _db.Tablolar.ToList().OrderBy(x => x.Ressam);
-            if (!_db.Tablolar.ToList().Any())
-            {
-                return BadRequest("hata");
-            }
-            return Ok(list);
-        }
+        }     
 
 
         [HttpPost("Ekle")]
-        public IActionResult Post(Tablo tablo)
+        public IActionResult Post(ShirtViewModel shirt)
         {
 
-            _db.Tablolar.Add(tablo);
-            var result = _db.SaveChanges();
+           var result = _shirtManager.Add(shirt);
+   
             if (result < 1)
             {
                 return BadRequest("hata");
@@ -59,67 +43,64 @@ namespace ClothesMarkt.API.Controllers
         }
 
         [HttpPut("Guncelle")]
-        public IActionResult Put(int id, Tablo tablo)
+        public IActionResult Put( ShirtViewModel shirtView)
         {
 
-            var tabloEski = _db.Tablolar.Find(id);
 
-            if (tabloEski is null)
+            if (shirtView is null)
             {
                 return BadRequest("hata");
             }
 
-            tabloEski.Ressam = tablo.Ressam;
-            tabloEski.YapilmaTarihi = tablo.YapilmaTarihi;
 
-            _db.Tablolar.Update(tabloEski);
-            var result = _db.SaveChanges();
+            
+            var result = _shirtManager.Update(shirtView);
 
             if (result < 1)
             {
                 return BadRequest("hata");
             }
-            return Ok(tabloEski);
+            return Ok(shirtView);
         }
 
         [HttpDelete("Sil")]
         public IActionResult Delete(int id)
         {
-            var tablo = _db.Tablolar.Find(id);
-            if (tablo is null)
+            var shirt = _shirtManager.GetById(id);
+            if (shirt is null)
             {
                 return BadRequest("hata");
             }
-            _db.Tablolar.Remove(tablo);
-            var result = _db.SaveChanges();
+            
+            var result = _shirtManager.Delete(shirt);
 
             if (result < 1)
             {
                 return BadRequest("hata");
             }
-            return Ok(tablo);
+            return Ok(shirt);
         }
 
         [HttpGet("Bul")]
         public IActionResult Get(int id)
         {
-            var aranantablo = _db.Tablolar.Find(id);
-            if (aranantablo is null)
+            var aranan = _shirtManager.GetById(id);
+            if (aranan is null)
             {
                 return BadRequest("Hata tablo bulunamadı");
             }
 
-            return Ok(aranantablo);
+            return Ok(aranan);
         }
 
         [HttpGet("Arama")]
         public IActionResult Get(string kelime)
         {
-            var tablolar = _db.Tablolar.ToList();
-            List<Tablo> tablos = new List<Tablo>();
+            var tablolar = _shirtManager.GetAll().ToList();
+            List<ShirtViewModel> tablos = new List<ShirtViewModel>();
             foreach (var item in tablolar)
             {
-                if (item.Ressam.ToLower().Contains(kelime.ToLower()))
+                if (item.Name.ToLower().Contains(kelime.ToLower()))
                 {
                     tablos.Add(item);
                 }
