@@ -9,7 +9,7 @@ namespace ClothesMarkt.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ShirtsController : Controller
+    public class ShirtsController : ControllerBase
     {
         private ShirtManager _shirtManager;
 
@@ -17,6 +17,7 @@ namespace ClothesMarkt.API.Controllers
         {
             _shirtManager = shirtManager;
         }
+
         [HttpGet("Listele")]
         public IActionResult Get()
         {

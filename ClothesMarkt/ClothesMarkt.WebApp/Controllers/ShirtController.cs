@@ -20,26 +20,34 @@ namespace ClothesMarkt.WebApp.Controllers
         private CategoryManager _categoryManager;
         private RenkManager _renkManager;
         private ClothesMarktDbContext _context;
+        private HttpClient _httpClient;
 
         int _rowNum = 1;
 
-		public ShirtController(ShirtManager shirtManager, CategoryManager categoryManager, RenkManager renkManager, ClothesMarktDbContext clothesMarktDbContext)
-		{
-			_shirtManager = shirtManager;
-			_categoryManager = categoryManager;
-			_renkManager = renkManager;
-			_context = clothesMarktDbContext;
-		}
-
-		// GET: ShirtController
-		public ActionResult Index()
+        public ShirtController(ShirtManager shirtManager, CategoryManager categoryManager, RenkManager renkManager, ClothesMarktDbContext clothesMarktDbContext, HttpClient httpClient)
         {
-            List<ShirtViewModel> list = _shirtManager.GetAll().ToList();
-            foreach (var item in list)
-            {
-                item.RowNum = _rowNum++;
-            }
-            return View(list);
+            _shirtManager = shirtManager;
+            _categoryManager = categoryManager;
+            _renkManager = renkManager;
+            _context = clothesMarktDbContext;
+            _httpClient = httpClient;
+        }
+
+        // GET: ShirtController
+        //public ActionResult Index()
+        //{
+        //    List<ShirtViewModel> list = _shirtManager.GetAll().ToList();
+        //    foreach (var item in list)
+        //    {
+        //        item.RowNum = _rowNum++;
+        //    }
+        //    return View(list);  
+        //}
+
+        public async Task<IActionResult> Index()
+        {
+
+            return View(await _httpClient.GetFromJsonAsync<List<ShirtViewModel>>("https://localhost:7236/api/Shirts/Listele"));
         }
 
         // GET: ShirtController/Details/5
